@@ -1,0 +1,68 @@
+button.button-size {
+    width: 5vw;
+    height: 3.5vh;
+    font-size: min(4vw, 14px);
+    margin: 5px 0;
+    border: none;
+    border-radius: 6px;
+    
+  }
+
+
+.flex-properti{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:1vh;              
+    
+  }
+.button-size {
+  flex-grow: 1;
+}
+
+.buttonColor{
+
+}
+
+.changing-color{
+
+}
+
+
+button.submitButton{
+
+  width:15vh;
+  height:15vh;
+  font-size: 2.5em;
+  margin: 5px 0;
+  border: solid;
+  border-radius:  100%;
+  background-color: cyan;
+
+
+}
+
+.svg-size {
+  width: 120px;  /* Set the width of the button */
+  height: 120px; /* Set the height of the button */
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+  background-color: blueviolet;
+  cursor: pointer;
+}
+
+.svg-size img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+

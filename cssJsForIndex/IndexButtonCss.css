@@ -43,26 +43,85 @@ button.submitButton{
 
 }
 
-.svg-size {
-  width: 120px;  /* Set the width of the button */
-  height: 120px; /* Set the height of the button */
-  padding: 5px;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid greenyellow;
-  border-radius: 10px;
-  background-color: blueviolet;
-  cursor: pointer;
+
+button.svg-size {
+  width: 100%; /* Fill grid cell */
+  box-sizing: border-box;
+  padding:20%;
+  border: none;
+  background-color: rebeccapurple;
+  color: aliceblue;
+  border-radius: 20%
+
+  
 }
 
-.svg-size img {
+
+button.svg-size img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block;
-  aspect-ratio: 1 / 1;
+
+
 }
+.game-box{
+  padding: 1px;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+
+@media (max-width: 20000px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(10,1fr) !important;
+    gap: 1px;
+    width: 100%;
+    max-width: 100vw;
+    }
+}
+
+@media (max-width: 1440px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(10,1fr) !important;
+    width: 100%;
+    max-width: 100vw;
+    }
+}
+
+@media (max-width: 1024px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(7,1fr) !important;
+    width: 100%;
+  max-width: 100vw;
+    }
+}
+    
+@media (max-width: 425px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(5,1fr) !important;
+    width: 100%;
+    max-width: 100vw;
+    }
+}
+
+body{
+  margin: 0px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+
+}
+
+
+
+
+  
+
+
 
 

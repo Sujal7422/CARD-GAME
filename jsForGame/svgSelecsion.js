@@ -3,6 +3,8 @@ const colorSetting = localStorage.getItem("colorSetting");
 let selectedSvgIcon=[];
 let random;
 let arrGameDisplay=[];
+let chackcarr=[];
+let chackiarr=[];
 
 
 function setSvmIconArr(sizeSetting){
@@ -65,19 +67,6 @@ function gameCardRander() {
         svgImage.src = `${svgFolder}${iconNumber}.svg`;
         svgImage.alt = `SVG ${iconNumber}`;
 
-        // Wait for the SVG to load, then adjust its size
-        svgImage.onload = () => {
-            const svgWidth = svgImage.naturalWidth;  // Get the SVG's natural width
-            const svgHeight = svgImage.naturalHeight; // Get the SVG's natural height
-
-            // Calculate the scaling ratio to fit the button
-            let scalingFactor = Math.min(100 / svgWidth, 100 / svgHeight); // Keep ratio, max 100px
-
-            // Set the size dynamically
-            svgImage.style.width = `${scalingFactor * svgWidth}px`;
-            svgImage.style.height = `${scalingFactor * svgHeight}px`;
-        };
-
         newButton.appendChild(svgImage);
         buttonContainer.appendChild(newButton);
     }
@@ -85,6 +74,46 @@ function gameCardRander() {
 
 
 
+selectCard = (c, i) => {
+    chackcarr.push(c);
+    chackiarr.push(i);
+    console.log('Current chackcarr:', chackcarr);
+    console.log('Current chackiarr:', chackiarr);
 
+    if (chackiarr.length === 2) {
+        // Only remove elements if both IDs are the same, and the class names are different
+        if (chackiarr[0] === chackiarr[1] && chackcarr[0] !== chackcarr[1]) {
+            let cc = chackiarr[0]; // ID to target
+            let bb = chackiarr[1]; // ID to target
 
+            // Select all elements with the same ID
+            let elements = document.querySelectorAll(`#${cc}`);
+            console.log('Found elements for cc:', elements);
+
+            if (elements.length > 0) {
+                elements.forEach(element => {
+                    element.remove(); // Remove each matching element
+                });
+            } else {
+                console.log(`No elements found with ID ${cc}`);
+            }
+
+            // Repeat for bb
+            elements = document.querySelectorAll(`#${bb}`);
+            console.log('Found elements for bb:', elements);
+
+            if (elements.length > 0) {
+                elements.forEach(element => {
+                    element.remove(); // Remove each matching element
+                });
+            } else {
+                console.log(`No elements found with ID ${bb}`);
+            }
+
+            // Clear the arrays after handling the pair
+            chackcarr = [];
+            chackiarr = [];
+        }
+    }
+};
 

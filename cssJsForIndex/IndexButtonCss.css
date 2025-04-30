@@ -1,3 +1,12 @@
+:root{
+  --svg-color:rgb(0,0,0);
+  --svg-background:rgb(255, 255, 255);
+  --shadow-color1:0;
+  --shadow-color2:0;
+  --shadow-color3:0;
+  --all-background:rgb(255,255,255);
+}
+
 button.button-size {
     width: 5vw;
     height: 3.5vh;
@@ -50,8 +59,8 @@ button.svg-size {
   box-sizing: border-box;
   padding:20%;
   border: none;
-  background-color: rebeccapurple;
-  color:#0CCE6B;
+  background-color: var(--svg-background);
+  color: var(--svg-color);
   border-radius: 20%
   
 
@@ -66,16 +75,16 @@ button.svg-size svg {
 button.svg-size{
   
   box-shadow:
-  rgba(2, 195, 154, 0.4) 0px 0px 0px 5px inset,
-  rgba(2, 195, 154, 0.3) 0px 0px 0px 10px inset,
-  rgba(2, 195, 154, 0.2) 0px 0px 0px 15px inset,
-  rgba(2, 195, 154, 0.1) 0px 0px 0px 20px inset,
-  rgba(2, 195, 154, 0.05) 0px 0px 0px 25px inset,
-  rgba(2, 195, 154, 0.4) 0px 0px 0px 5px,
-  rgba(2, 195, 154, 0.3) 0px 0px 0px 10px,
-  rgba(2, 195, 154, 0.2) 0px 0px 0px 15px,
-  rgba(2, 195, 154, 0.1) 0px 0px 0px 20px,
-  rgba(2, 195, 154, 0.05) 0px 0px 0px 25px;  
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.4) 0px 0px 0px 5px inset,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.3) 0px 0px 0px 10px inset,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.2) 0px 0px 0px 15px inset,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.1) 0px 0px 0px 20px inset,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.05) 0px 0px 0px 25px inset,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.4) 0px 0px 0px 5px,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.3) 0px 0px 0px 10px,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.2) 0px 0px 0px 15px,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.1) 0px 0px 0px 20px,
+  rgba(var(--shadow-color1),var(--shadow-color2),var(--shadow-color3), 0.05) 0px 0px 0px 25px;  
   
 }
 
@@ -131,7 +140,7 @@ body{
   box-sizing: border-box;
   width: 100%;
   max-width: 100vw;
-  background-color: 05668D;
+  background-color: var(--all-background);
 
 }
 

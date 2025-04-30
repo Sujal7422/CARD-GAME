@@ -43,7 +43,7 @@ function setSvmIconArr(sizeSetting){
 
 
 
-function gameCardRander() {
+async function gameCardRander() {
     const buttonContainer = document.querySelector('section');
     buttonContainer.innerHTML = ""; // Clear old buttons
 
@@ -63,22 +63,29 @@ function gameCardRander() {
 
         newButton.setAttribute('onclick', `selectCard('${className}', '${idName}')`);
 
-        const svgImage = document.createElement('img');
-        svgImage.src = `${svgFolder}${iconNumber}.svg`;
-        svgImage.alt = `SVG ${iconNumber}`;
+        // ✅ Load and insert inline SVG
+        const svgText = await fetch(`${svgFolder}${iconNumber}.svg`).then(res => res.text());
+        const svgWrapper = document.createElement('div');
+        svgWrapper.innerHTML = svgText;
+        const inlineSvg = svgWrapper.querySelector('svg');
 
-        newButton.appendChild(svgImage);
+        // Optional: ensure the SVG uses currentColor
+        inlineSvg.setAttribute('fill', 'currentColor');
+        inlineSvg.classList.add('icon-svg'); // Optional CSS class
+
+        newButton.appendChild(inlineSvg);
         buttonContainer.appendChild(newButton);
     }
 }
 
 
 
+
 selectCard = (c, i) => {
     chackcarr.push(c);
     chackiarr.push(i);
-    console.log('Current chackcarr:', chackcarr);
-    console.log('Current chackiarr:', chackiarr);
+    console.log('Current class:', chackcarr);
+    console.log('Current id:', chackiarr);
 
     if (chackiarr.length === 2) {
         // Only remove elements if both IDs are the same, and the class names are different
@@ -110,10 +117,33 @@ selectCard = (c, i) => {
                 console.log(`No elements found with ID ${bb}`);
             }
 
-            // Clear the arrays after handling the pair
+        }
+        else if(chackiarr[0] !== chackiarr[1] || chackcarr[0] !== chackcarr[1] || (chackiarr[0] === chackiarr[1] || chackcarr[0] === chackcarr[1])){
+
+            
             chackcarr = [];
             chackiarr = [];
-        }
+            console.log("worrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+            console.log(chackcarr);
+            console.log(chackiarr);
+            
+        };
+
     }
+    else if (chackiarr.length > 2){
+        let tempc=chackcarr[2];
+        let tempi=chackiarr[2];
+
+        chackcarr = [];
+        chackiarr = [];
+
+        chackcarr[0] = tempc;
+        chackiarr[0] = tempi;
+
+    }
+
+
+   
+           
 };
 

@@ -75,30 +75,23 @@ async function gameCardRander() {
     }
     if(sizeSetting === 10){
         sizeSetting = 10;
-        console.log(sizeSetting);
     }
     else if(sizeSetting === 8){
         sizeSetting =8;
+    }
+    else{sizeSetting = 6;
         console.log(sizeSetting);
-
-    }else{sizeSetting = 6;
-        console.log(sizeSetting);
-
     }
     
     
     if(colorSetting === "Keep Changing Colors"){
         keepChangeColor();
-        console.log(colorSetting);
-
     }
     else if(colorSetting === "Change Color"){
         changeColor();
+    }
+    else{noColor();
         console.log(colorSetting);
-
-    }else{noColor();
-        console.log(colorSetting);
-
     }
 
 }
@@ -141,23 +134,16 @@ selectCard = (c, i) => {
             } else {
                 console.log(`No elements found with ID ${bb}`);
             }
+            chackcarr = [];
+            chackiarr = [];
+           
         }
-        else if(chackiarr[0] !== chackiarr[1] || chackcarr[0] !== chackcarr[1] || (chackiarr[0] === chackiarr[1] || chackcarr[0] === chackcarr[1])){
+        else if(chackiarr[0] !== chackiarr[1] || chackcarr[0] !== chackcarr[1] || (chackiarr[0] === chackiarr[1] && chackcarr[0] === chackcarr[1])){
             chackcarr = [];
             chackiarr = [];  
+            
         };
-    }
-    else if (chackiarr.length > 2){
-        let tempc=chackcarr[2];
-        let tempi=chackiarr[2];
-
-        chackcarr = [];
-        chackiarr = [];
-
-        chackcarr[0] = tempc;
-        chackiarr[0] = tempi;
-
-    }       
+    }    
 };
 
 colorArr=[["rgb(5, 102, 141)"  , "2"  , "128", "144", "rgb(0, 168, 150)"   , "rgb(2, 195, 154)"],
@@ -187,51 +173,56 @@ colorArr=[["rgb(5, 102, 141)"  , "2"  , "128", "144", "rgb(0, 168, 150)"   , "rg
 
 function keepChangeColor(){
     changeColor();
-        setInterval(changeColor, 2000);
+        setInterval(changeColor, (selectedSvgIcon.length) * 200);
 
 };
 
-function changeColor() {
+async function changeColor() {
     console.log("I am called");
-    
-    for (let i = 0; i < selectedSvgIcon.length; i++) {
-       
-        const className = `card-${i}`; // The unique class for each button
-        v = Math.floor(Math.random() * (colorArr.length));
-        if(v<=colorArr.length){
-        console.log(v);
-        // Generate the background and text color from the colorArr
-        const backgroundColor = `${colorArr[v][4]}`;
-        const textColor = `${colorArr[v][5]}`;
 
-        // Generate the shadow styles
-        const shadow = `
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.4) 0px 0px 0px 5px inset,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.3) 0px 0px 0px 10px inset,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.2) 0px 0px 0px 15px inset,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.1) 0px 0px 0px 20px inset,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.05) 0px 0px 0px 25px inset,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.4) 0px 0px 0px 5px,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.3) 0px 0px 0px 10px,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.2) 0px 0px 0px 15px,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.1) 0px 0px 0px 20px,
-            rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.05) 0px 0px 0px 25px
-        `;
-        
-        // Inject CSS rules for the specific class
-        injectCss(className, `
-            background-color: ${backgroundColor} !important;
-            color: ${textColor} !important;
-            box-shadow: ${shadow} !important;
-        `);
+    for (let i = 0; i < selectedSvgIcon.length; i++) {
+        const className = `card-${i}`;
+        let v = Math.floor(Math.random() * colorArr.length);
+
+        if (v < colorArr.length) {
+            const backgroundColor = `${colorArr[v][4]}`;
+            const textColor = `${colorArr[v][5]}`;
+
+            const shadow = `
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.4) 0px 0px 0px 5px inset,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.3) 0px 0px 0px 10px inset,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.2) 0px 0px 0px 15px inset,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.1) 0px 0px 0px 20px inset,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.05) 0px 0px 0px 25px inset,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.4) 0px 0px 0px 5px,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.3) 0px 0px 0px 10px,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.2) 0px 0px 0px 15px,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.1) 0px 0px 0px 20px,
+                rgba(${colorArr[v][1]}, ${colorArr[v][2]}, ${colorArr[v][3]}, 0.05) 0px 0px 0px 25px
+            `;
+
+            injectCss(className, `
+                background-color: ${backgroundColor} !important;
+                color: ${textColor} !important;
+                box-shadow: ${shadow} !important;
+            `);
+
+            // Optional: add delay between coloring each card
+            await delay(200); // 50ms delay
+        }
     }
 }
+
+// Optional delay helper
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 // Function to inject custom CSS for a given class
 function injectCss(className, properties) {
     // Create a <style> element
     const styleElement = document.createElement('style');
+    console.log(styleElement);
     styleElement.innerHTML = `
         .${className} {
             ${properties}
@@ -249,6 +240,7 @@ function noColor(){
     const buttons = document.querySelectorAll("button.svg-size");
 
     buttons.forEach(btn => {
+    
     btn.style.backgroundColor = `${colorArr[v][4]}`;
     btn.style.color = `${colorArr[v][5]}`;
     btn.style.boxShadow = `

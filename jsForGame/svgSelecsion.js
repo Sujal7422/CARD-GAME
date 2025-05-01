@@ -186,6 +186,8 @@ colorArr=[["rgb(5, 102, 141)"  , "2"  , "128", "144", "rgb(0, 168, 150)"   , "rg
           let v = Math.floor(Math.random() * (colorArr.length));
 
 function keepChangeColor(){
+    changeColor();
+        setInterval(changeColor, 2000);
 
 };
 

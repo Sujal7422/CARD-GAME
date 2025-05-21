@@ -1,0 +1,134 @@
+button.button-size {
+    width: 5vw;
+    height: 3.5vh;
+    font-size: min(4vw, 14px);
+    margin: 5px 0;
+    border: none;
+    border-radius: 6px;
+    
+  }
+
+
+.flex-properti{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:1vh;              
+    
+  }
+.button-size {
+  flex-grow: 1;
+}
+
+.buttonColor{
+
+}
+
+.changing-color{
+
+}
+
+
+button.submitButton{
+
+  width:15vh;
+  height:15vh;
+  font-size: 2.5em;
+  margin: 5px 0;
+  border: solid;
+  border-radius:  100%;
+  background-color: cyan;
+
+
+}
+
+
+button.svg-size {
+  width: 100%; /* Fill grid cell */
+ 
+  box-sizing: border-box;
+  padding:20%;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0,0,0);
+  border-radius: 20%; 
+
+  box-shadow:
+  rgba(0,0,0, 0.4) 0px 0px 0px 5px inset,
+  rgba(0,0,0, 0.3) 0px 0px 0px 10px inset,
+  rgba(0,0,0, 0.2) 0px 0px 0px 15px inset,
+  rgba(0,0,0, 0.1) 0px 0px 0px 20px inset,
+  rgba(0,0,0, 0.05) 0px 0px 0px 25px inset,
+  rgba(0,0,0, 0.4) 0px 0px 0px 5px,
+  rgba(0,0,0, 0.3) 0px 0px 0px 10px,
+  rgba(0,0,0, 0.2) 0px 0px 0px 15px,
+  rgba(0,0,0, 0.1) 0px 0px 0px 20px,
+  rgba(0,0,0, 0.05) 0px 0px 0px 25px;  
+
+}
+
+button.svg-size svg {
+  width: 100%;
+  height: 100%;
+}
+
+.game-box{
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+
+@media (max-width: 20000px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(10,1fr) !important;
+    gap: 10px;
+    width: 100%;
+    max-width: 100vw;
+    }
+}
+
+@media (max-width: 1440px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(10,1fr) !important;
+    width: 100%;
+    max-width: 100vw;
+    }
+}
+
+@media (max-width: 1024px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(7,1fr) !important;
+    width: 100%;
+  max-width: 100vw;
+    }
+}
+    
+@media (max-width: 425px) {
+  .game-box{
+    display: grid;
+    grid-template-columns: repeat(5,1fr) !important;
+    width: 100%;
+    max-width: 100vw;
+    }
+}
+
+body{
+  margin: 0px;
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.753);
+
+}
+
+
+
+
+

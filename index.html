@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Settings</title>
+    <link rel="stylesheet" href="cssJsForIndex/IndexButtonCss.css">   
+    <script src="cssJsForIndex/IndexButtonJs.js"></script>
+</head>
+<body>
+
+    <h1>Select Difficulty for Game</h1>
+
+    <h2>Size (e.g., 9x9)</h2>
+    <section class="flex-properti">
+        <button onclick="setSize(6)"  class="button-size">         6x6          </button>
+        <button onclick="setSize(8)"  class="button-size">         8x8          </button>
+        <button onclick="setSize(10)" class="button-size">         10x10        </button>
+    </section>
+
+    <h2>Color Settings</h2>
+    <section class="flex-properti">
+        <button onclick="color('No Color Change')"      class="button-size">                No Color Change          </button>
+        <button onclick="color('Change Color')"         class="buttonColor button-size">    Change Color             </button>
+        <button onclick="color('Keep Changing Colors')" class="changing-color button-size"> Keep Changing Colors     </button>
+    </section>
+
+    <h2>Start Game</h2>
+    <section class="flex-properti">
+        <a href="game.html">
+            <button                                         class="submitButton">               Click               </button>
+        </a>
+    </section>
+
+</body>
+</html>
